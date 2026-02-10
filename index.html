@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Disparos - Domine o WhatsApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                200: '#bfdbfe',
+                300: '#93c5fd',
+                400: '#60a5fa',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a',
+                950: '#172554',
+              },
+            },
+            animation: {
+              'spin-slow': 'spin 4s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .dark body {
+        background-color: #0d1117;
+        color: white;
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+      }
+
+      .gradient-text-blue {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .blue-glow {
+        box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+      }
+
+      .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+      .custom-scrollbar::-webkit-scrollbar-thumb { 
+        background: rgba(37, 99, 235, 0.2); 
+        border-radius: 10px; 
+      }
+      
+      .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Snake/Laser Border Animation */
+      @keyframes snake {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .laser-container {
+        position: relative;
+        padding: 3px;
+        overflow: hidden;
+        border-radius: 3.5rem;
+      }
+
+      .laser-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          transparent, 
+          white 10%, 
+          #60a5fa 20%, 
+          white 30%, 
+          transparent 45%
+        );
+        animation: snake 3s linear infinite;
+        z-index: 0;
+      }
+
+      .laser-inner {
+        position: relative;
+        z-index: 10;
+        background: inherit;
+        border-radius: inherit;
+        height: 100%;
+        width: 100%;
+      }
+
+      /* Fixed Circular Progress Styles */
+      .circle-progress-container {
+        position: relative;
+        display: inline-block;
+        overflow: visible; 
+      }
+      
+      .circle-progress-svg {
+        overflow: visible;
+        transform: rotate(-90deg);
+      }
+
+      .glow-green { filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6)); }
+      .glow-blue { filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.7)); }
+
+      .dashboard-card {
+        background: rgba(22, 27, 34, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 1.5rem;
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 640px) {
+        h1 { font-size: 2.5rem !important; line-height: 1 !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+</head>
+  <body class="selection:bg-brand-600 selection:text-white overflow-x-hidden">
+    <div id="root"></div>
+  </body>
+</html>

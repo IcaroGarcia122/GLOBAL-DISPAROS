@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Copy of ZapElite Clone - Ultimate WhatsApp CRM",
+  "description": "A high-conversion landing page clone for ZapElite, featuring professional design, automation showcases, and AI-powered sales script generation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
